@@ -2,22 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="368eafbc-dd96-4191-987d-39c9fa140a03" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-01/.browserslistrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-01/.eslintrc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-01/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-01/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-01/babel.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-01/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-01/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-01/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-01/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-01/src/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-01/src/assets/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-01/src/components/Calculator.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-01/src/components/HelloWorld.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-01/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-02/.browserslistrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-02/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-02/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-02/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-02/babel.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-02/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-02/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-02/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-02/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-02/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-02/src/assets/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-02/src/components/Calculator.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-02/src/components/HelloWorld.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-02/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +63,9 @@
       <option name="presentableId" value="Default" />
       <updated>1624976354654</updated>
       <workItem from="1624976356882" duration="16541000" />
-      <workItem from="1625162448095" duration="929000" />
+      <workItem from="1625162448095" duration="1234000" />
+      <workItem from="1625230609873" duration="7206000" />
+      <workItem from="1625250646835" duration="8437000" />
     </task>
     <servers />
   </component>
@@ -79,5 +80,17 @@
       <path value="$PROJECT_DIR$/hw1/first-project" />
       <path value="$PROJECT_DIR$/hw1/hw1" />
     </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/hw-02/src/components/Calculator.vue</url>
+          <line>26</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
