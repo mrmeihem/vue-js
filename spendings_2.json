@@ -1,0 +1,172 @@
+[
+  {
+    "page1": [
+      {
+        "id": 1,
+        "date": "2018-06-15",
+        "category": "Entertaiment",
+        "value": 1099
+      },
+      {
+        "id": 2,
+        "date": "2021-05-28",
+        "category": "Trevel",
+        "value": 2202
+      },
+      {
+        "id": 3,
+        "date": "2015-10-02",
+        "category": "Education",
+        "value": 133
+      },
+      {
+        "id": 4,
+        "date": "2014-12-18",
+        "category": "Food",
+        "value": 912
+      },
+      {
+        "id": 5,
+        "date": "2015-11-20",
+        "category": "Entertaiment",
+        "value": 690
+      }
+    ]
+  },
+  {
+    "page2": [
+      {
+        "id": 1,
+        "date": "2019-11-30",
+        "category": "Entertaiment",
+        "value": 3706
+      },
+      {
+        "id": 2,
+        "date": "2019-10-21",
+        "category": "Sport",
+        "value": 1206
+      },
+      {
+        "id": 3,
+        "date": "2020-08-13",
+        "category": "Sport",
+        "value": 1868
+      },
+      {
+        "id": 4,
+        "date": "2018-09-22",
+        "category": "Sport",
+        "value": 3369
+      },
+      {
+        "id": 5,
+        "date": "2020-02-12",
+        "category": "Education",
+        "value": 3970
+      }
+    ]
+  },
+  {
+    "page3": [
+      {
+        "id": 1,
+        "date": "2019-11-20",
+        "category": "Food",
+        "value": 600
+      },
+      {
+        "id": 2,
+        "date": "2014-09-13",
+        "category": "Food",
+        "value": 1559
+      },
+      {
+        "id": 3,
+        "date": "2018-11-23",
+        "category": "Food",
+        "value": 1557
+      },
+      {
+        "id": 4,
+        "date": "2020-04-09",
+        "category": "Education",
+        "value": 1020
+      },
+      {
+        "id": 5,
+        "date": "2015-08-15",
+        "category": "Food",
+        "value": 3481
+      }
+    ]
+  },
+  {
+    "page4": [
+      {
+        "id": 1,
+        "date": "2020-08-03",
+        "category": "Trevel",
+        "value": 3327
+      },
+      {
+        "id": 2,
+        "date": "2014-05-06",
+        "category": "Trevel",
+        "value": 2841
+      },
+      {
+        "id": 3,
+        "date": "2019-10-09",
+        "category": "Food",
+        "value": 634
+      },
+      {
+        "id": 4,
+        "date": "2018-06-09",
+        "category": "Trevel",
+        "value": 1747
+      },
+      {
+        "id": 5,
+        "date": "2018-10-21",
+        "category": "Sport",
+        "value": 3219
+      }
+    ]
+  },
+  {
+    "page5": [
+      {
+        "id": 1,
+        "date": "2020-05-10",
+        "category": "Sport",
+        "value": 3994
+      },
+      {
+        "id": 2,
+        "date": "2014-01-02",
+        "category": "Sport",
+        "value": 2223
+      },
+      {
+        "id": 3,
+        "date": "2021-02-20",
+        "category": "Trevel",
+        "value": 1973
+      },
+      {
+        "id": 4,
+        "date": "2020-03-05",
+        "category": "Trevel",
+        "value": 2919
+      },
+      {
+        "id": 5,
+        "date": "2017-07-30",
+        "category": "Sport",
+        "value": 3057
+      }
+    ]
+  }
+]
