@@ -1,7 +1,3 @@
-[
-  "Food",
-  "Trevel",
-  "Sport",
-  "Entertaiment",
-  "Education"
-]
+{
+  "Categories": [ "Food", "Trevel", "Sport", "Entertaiment", "Education"]
+}
