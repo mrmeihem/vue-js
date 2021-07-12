@@ -1,5 +1,4 @@
 [
-  {
     "page1": [
       {
         "id": 1,
@@ -31,9 +30,7 @@
         "category": "Entertaiment",
         "value": 690
       }
-    ]
-  },
-  {
+    ],
     "page2": [
       {
         "id": 1,
@@ -65,9 +62,7 @@
         "category": "Education",
         "value": 3970
       }
-    ]
-  },
-  {
+    ],
     "page3": [
       {
         "id": 1,
@@ -99,9 +94,7 @@
         "category": "Food",
         "value": 3481
       }
-    ]
-  },
-  {
+    ],
     "page4": [
       {
         "id": 1,
@@ -133,9 +126,7 @@
         "category": "Sport",
         "value": 3219
       }
-    ]
-  },
-  {
+    ],
     "page5": [
       {
         "id": 1,
