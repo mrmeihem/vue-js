@@ -1,26 +1,29 @@
 <template>
   <div id="app">
-<!--    <img alt="Vue logo" src="./assets/logo.png">-->
-    <AddPayment @addNewPayment="addData"/>
-    <PaymentsDisplay :list="this.getPaymentList(this.$store.state.currentPageNumber)"/>
+    <AddPayment :categories="categories" @addNewPayment="addData"/>
+    <PaymentsDisplay :list="this.getPaymentList(this.$store.state.PageNumber)"/>
+    <Pagination :PageNumber="PageNumber" @newPageNumber="newPageNumber"/>
   </div>
 </template>
 
 <script>
 import PaymentsDisplay from './components/PaymentsDisplay.vue'
 import AddPayment from './components/AddPayment.vue'
+import Pagination from './components/Pagination.vue'
 import { mapMutations, mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'App',
   components: {
     PaymentsDisplay,
-    AddPayment
+    AddPayment,
+    Pagination
   },
   methods: {
     ...mapMutations([
       'setPaymentListData',
-      'addDataToPaymentsList'
+      'addDataToPaymentsList',
+      'setNewPageNumber'
     ]),
     ...mapActions([
       'fetchData',
@@ -34,11 +37,21 @@ export default {
       // this.$store.state.addDataToPaymentsList(data);
       this.addDataToPaymentsList(data);
     },
+    newPageNumber(direction){
+      if (direction === 'previous') {
+        const newPageN = (this.paymentsList['page' + (this.PageNumber - 1)]) ? (this.PageNumber - 1) : this.PageNumber;
+        this.setNewPageNumber(newPageN);
+      } else {
+        const newPageN = (this.paymentsList['page' + (this.PageNumber + 1)]) ? (this.PageNumber + 1) : this.PageNumber;
+        this.setNewPageNumber(newPageN);
+      }
+    }
   },
   computed: {
     ...mapGetters({
       paymentsList:'getPaymentList',
-      categories: 'getCategoryList'
+      categories: 'getCategoryList',
+      PageNumber: 'getPageNumber'
     }),
   },
   created() {
