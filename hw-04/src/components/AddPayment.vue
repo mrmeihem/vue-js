@@ -40,8 +40,6 @@ export default {
                 category,
                 value
             }
-            console.log('add', data)
-            //Вызов события, название события и аргументы
             this.$emit('addNewPayment', data)
         }
     },

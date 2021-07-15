@@ -16,7 +16,7 @@
 import PaymentsDisplay from "./components/PaymentsDisplay.vue";
 import AddPayment from "./components/AddPayment.vue";
 import Pagination from "./components/Pagination";
-
+import { mapMutations, mapGetters, mapActions } from 'vuex'
 
 export default {
   name: "App",
