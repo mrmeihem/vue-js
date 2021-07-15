@@ -2,20 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="368eafbc-dd96-4191-987d-39c9fa140a03" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/hw-02/.browserslistrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-02/.eslintrc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-02/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-02/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-02/babel.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-02/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-02/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-02/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-02/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-02/src/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-02/src/assets/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-02/src/components/Calculator.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-02/src/components/HelloWorld.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw-02/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-03/.browserslistrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-03/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-03/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-03/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-03/babel.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-03/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-03/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-03/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-03/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-03/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-03/src/assets/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-03/src/components/AddPayment.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-03/src/components/ButtonHover.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-03/src/components/Pagination.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-03/src/components/PaymentsDisplay.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-03/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +48,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/hw-03" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -53,6 +56,14 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\git\vue-js\hw-03" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\git\vue-js\hw-03\src\assets" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -66,6 +77,9 @@
       <workItem from="1625162448095" duration="1234000" />
       <workItem from="1625230609873" duration="7206000" />
       <workItem from="1625250646835" duration="8437000" />
+      <workItem from="1625420716344" duration="425000" />
+      <workItem from="1625657262626" duration="15415000" />
+      <workItem from="1625764604534" duration="9591000" />
     </task>
     <servers />
   </component>
@@ -85,10 +99,20 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/hw-02/src/components/Calculator.vue</url>
-          <line>26</line>
+          <url>file://$PROJECT_DIR$/hw-03/src/App.vue</url>
+          <line>30</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/hw-03/src/App.vue</url>
+          <line>39</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/hw-03/src/App.vue</url>
+          <line>47</line>
           <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
