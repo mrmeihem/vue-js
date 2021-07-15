@@ -1,7 +1,7 @@
 <template>
   <div class="payments-list">
     <table border="1px">
-      <tr v-for="item in list" :key="item">
+      <tr v-for="item in list" :key="item.id">
         <td>{{ item.id }}</td>
         <td>{{ item.date }}</td>
         <td>{{ item.category }}</td>
@@ -28,6 +28,7 @@ export default {
   .payments-list {
     display: flex;
     justify-content: center;
+    margin: 10px;
   }
   table {
     text-decoration: none;

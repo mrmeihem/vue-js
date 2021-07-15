@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     paymentsList: {},
     categoriesList: [],
-    currentPageNumber: 1
+    PageNumber: 1
   },
   mutations: {
     setPaymentListData(state, payload) {
@@ -20,8 +20,11 @@ export default new Vuex.Store({
       // добавить логику добавления записи на последнюю страницу
       console.log(this.getPaymentList());
       // console.log(this.getPaymentList['page'+(this.getPaymentList.length+1)]);
-      state.paymentsList.push(payload)
+      state.paymentsList.push(payload);
     },
+    setNewPageNumber(state, payload) {
+      state.PageNumber = payload;
+    }
   },
   actions: {
     // Getting payment list from server
@@ -48,6 +51,7 @@ export default new Vuex.Store({
   },
   getters: {
     getPaymentList: state => state.paymentsList,
-    getCategoryList: state => state.categoryList
+    getCategoryList: state => state.categoriesList,
+    getPageNumber: state => state.PageNumber
   }
 })

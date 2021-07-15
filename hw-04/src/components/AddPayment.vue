@@ -1,17 +1,12 @@
 <template>
   <div>
+    sdsd {{categories}}
     <button class="addbutton" v-show="addButton" @click="addButton = !addButton">Add element</button>
     <div class="addwindow" v-show="!addButton">
       <button class="closebutton" @click="addButton = !addButton"><span>+</span></button>
       <input type="date" v-model="date" placeholder="date" />
       <select v-model.trim="category">
-        <option value="">-Please choose an option--</option>
-        <option value="dog">Dog</option>
-        <option value="cat">Cat</option>
-        <option value="hamster">Hamster</option>
-        <option value="parrot">Parrot</option>
-        <option value="spider">Spider</option>
-        <option value="goldfish">Goldfish</option>
+        <option v-for="{item, idx} in categories" :key="idx">{{ item }}</option>
       </select>
       <input v-model.number="value" type="number" placeholder="value"/>
       <button @click="onClick">
@@ -24,6 +19,12 @@
 <script>
 export default {
     name: "AddPayment",
+    props: {
+      categories: {
+        type: Array,
+        default: ()=>[]
+      }
+    },
     data(){
         return {
             addButton: true,
