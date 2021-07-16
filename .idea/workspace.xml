@@ -2,13 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="368eafbc-dd96-4191-987d-39c9fa140a03" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/hw-04/src/components/Pagination.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-05/.browserslistrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-05/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-05/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-05/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-05/babel.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-05/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-05/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-05/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-05/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-05/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-05/src/assets/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-05/src/components/AddPayment.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-05/src/components/Pagination.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-05/src/components/PaymentsDisplay.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-05/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-05/src/router/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-05/src/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-05/src/views/404.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-05/src/views/Home.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-06/.browserslistrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-06/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-06/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-06/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-06/babel.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-06/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-06/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-06/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-06/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-06/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-06/src/assets/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-06/src/components/HelloWorld.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-06/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-06/src/router/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-06/src/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-06/src/views/About.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-06/src/views/Home.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw-03/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/hw-03/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw-04/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/hw-04/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw-04/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/hw-04/src/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hw-04/src/components/AddPayment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/hw-04/src/components/AddPayment.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw-04/src/components/PaymentsDisplay.vue" beforeDir="false" afterPath="$PROJECT_DIR$/hw-04/src/components/PaymentsDisplay.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw-04/src/components/Pagination.vue" beforeDir="false" afterPath="$PROJECT_DIR$/hw-04/src/components/Pagination.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hw-04/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/hw-04/src/store/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,6 +111,9 @@
       <workItem from="1626178355181" duration="10701000" />
       <workItem from="1626288569840" duration="5760000" />
       <workItem from="1626352707150" duration="9163000" />
+      <workItem from="1626367267961" duration="701000" />
+      <workItem from="1626368037025" duration="1382000" />
+      <workItem from="1626370113666" duration="9802000" />
     </task>
     <servers />
   </component>
@@ -95,6 +130,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -110,33 +146,24 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/hw-04/src/App.vue</url>
-          <line>56</line>
+          <line>69</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/hw-04/src/App.vue</url>
-          <line>58</line>
+          <line>71</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/hw-04/src/App.vue</url>
-          <line>59</line>
+          <line>72</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/hw-04/src/store/index.js</url>
-          <line>30</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/hw-04/src/store/index.js</url>
-          <line>28</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/hw-04/src/App.vue</url>
-          <line>34</line>
-          <option name="timeStamp" value="13" />
+          <url>file://$PROJECT_DIR$/hw-05/src/components/AddPayment.vue</url>
+          <line>35</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -34,24 +34,59 @@ export default {
         }
     },
     methods: {
-        onClick(){
-            const { category, value } = this
-            const data = {
-                date: this.date || this.getCurrentDate,
-                category,
-                value
-            }
-            this.$emit('addNewPayment', data)
+      goToHomePage(){
+        this.$router.push({
+          name: 'home'
+        })
+      },
+      onClick(){
+        const { category, value } = this
+        const data = {
+          date: this.date || this.getCurrentDate,
+          category,
+          value
         }
+        console.log('add', data)
+        //Вызов события, название события и аргументы
+        if(this.getValueQueryFromRoute && this.getCategoryParamsFromRoute) {
+          this.$store.commit('addDataToPaymentsList', data)
+          this.goToHomePage()
+          return
+        }
+        this.$emit('addNewPayment', data)
+      }
+        // onClick(){
+        //     const { category, value } = this
+        //     const data = {
+        //         date: this.date || this.getCurrentDate,
+        //         category,
+        //         value
+        //     }
+        //     this.$emit('addNewPayment', data)
+        // }
     },
     computed: {
-        getCurrentDate() {
-            const today = new Date()
-            const d = today.getDate()
-            const m = today.getMonth() + 1
-            const y = today.getFullYear()
-            return `${d}.${m}.${y}`
-        }
+      getCurrentDate() {
+          const today = new Date()
+          const d = today.getDate()
+          const m = today.getMonth() + 1
+          const y = today.getFullYear()
+          return `${d}.${m}.${y}`
+      },
+      getValueQueryFromRoute(){
+        return Number(this.$route.query?.value) ?? null
+      },
+      getCategoryParamsFromRoute(){
+        return this.$route.params?.category ?? null
+      }
+    },
+    created(){
+      console.log(this.$attrs)
+      if((!this.getValueQueryFromRoute || !this.getCategoryParamsFromRoute) && this.$route.name !== 'home'){
+        this.goToHomePage()
+      }
+      this.category = this.getCategoryParamsFromRoute
+      this.value = this.getValueQueryFromRoute
     }
 }
 </script>
