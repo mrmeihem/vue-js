@@ -5,8 +5,13 @@
       <button class="closebutton" @click="addButton = !addButton"><span>+</span></button>
       <input type="date" v-model="date" placeholder="date" />
       <select v-model.trim="category">
-        <option value="">-Please choose an option--</option>
-        <option v-for="item in categories" :key="item" v-bind:item="item">{{ item }}</option>
+        <template v-if="!categoryNown">
+          <option selected>--Please choose an option--</option>
+          <option v-for="item in categories" :key="item" v-bind:item="item">{{ item }}</option>
+        </template>
+        <template v-if="categoryNown">
+          <option v-bind:value="category">{{ category }}</option>
+        </template>
       </select>
       <input v-model.number="value" type="number" placeholder="value"/>
       <button @click="onClick">
@@ -27,6 +32,7 @@ export default {
     },
     data(){
         return {
+            categoryNown: false,
             addButton: true,
             date: "",
             category: "",
@@ -49,21 +55,13 @@ export default {
         console.log('add', data)
         //Вызов события, название события и аргументы
         if(this.getValueQueryFromRoute && this.getCategoryParamsFromRoute) {
-          this.$store.commit('addDataToPaymentsList', data)
+          // this.$store.commit('addDataToPaymentsList', data)
+          console.log('сохраняем данные')
           this.goToHomePage()
           return
         }
         this.$emit('addNewPayment', data)
       }
-        // onClick(){
-        //     const { category, value } = this
-        //     const data = {
-        //         date: this.date || this.getCurrentDate,
-        //         category,
-        //         value
-        //     }
-        //     this.$emit('addNewPayment', data)
-        // }
     },
     computed: {
       getCurrentDate() {
@@ -81,12 +79,23 @@ export default {
       }
     },
     created(){
-      console.log(this.$attrs)
-      if((!this.getValueQueryFromRoute || !this.getCategoryParamsFromRoute) && this.$route.name !== 'home'){
+      if (!this.getValueQueryFromRoute && this.getCategoryParamsFromRoute) {
+        this.category = this.getCategoryParamsFromRoute;
+        this.categoryNown = true;
+        this.addButton = false;
+      } else if (this.getValueQueryFromRoute && !this.getCategoryParamsFromRoute) {
+        this.value = this.getValueQueryFromRoute;
+        this.addButton = false;
+      } else if(!this.getValueQueryFromRoute || !this.getCategoryParamsFromRoute){
+        this.goToHomePage();
+      } else {
+        this.category = this.getCategoryParamsFromRoute;
+        this.categoryNown = true;
+        this.value = this.getValueQueryFromRoute;
+        this.addButton = false;
+        console.log('сохраняем данные')
         this.goToHomePage()
       }
-      this.category = this.getCategoryParamsFromRoute
-      this.value = this.getValueQueryFromRoute
     }
 }
 </script>
