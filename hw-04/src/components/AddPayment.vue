@@ -6,12 +6,7 @@
       <input type="date" v-model="date" placeholder="date" />
       <select v-model.trim="category">
         <option value="">-Please choose an option--</option>
-        <option value="dog">Dog</option>
-        <option value="cat">Cat</option>
-        <option value="hamster">Hamster</option>
-        <option value="parrot">Parrot</option>
-        <option value="spider">Spider</option>
-        <option value="goldfish">Goldfish</option>
+        <option v-for="item in categories" :key="item" v-bind:item="item">{{ item }}</option>
       </select>
       <input v-model.number="value" type="number" placeholder="value"/>
       <button @click="onClick">
@@ -24,6 +19,12 @@
 <script>
 export default {
     name: "AddPayment",
+    props: {
+      categories: {
+        type: Array,
+        default: ()=>[]
+      }
+    },
     data(){
         return {
             addButton: true,
@@ -40,8 +41,6 @@ export default {
                 category,
                 value
             }
-            console.log('add', data)
-            //Вызов события, название события и аргументы
             this.$emit('addNewPayment', data)
         }
     },
