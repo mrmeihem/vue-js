@@ -145,8 +145,14 @@
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
+<<<<<<< HEAD
           <url>file://$PROJECT_DIR$/hw-06/src/views/Home.vue</url>
           <line>73</line>
+=======
+          <url>file://$PROJECT_DIR$/hw-05/src/components/AddPayment.vue</url>
+          <line>8</line>
+          <properties lambdaOrdinal="-1" />
+>>>>>>> hw-06
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
