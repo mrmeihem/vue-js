@@ -2,6 +2,11 @@
   <div id="app">
     <AddPayment :categories="categories" @addNewPayment="addData"/>
     <PaymentsDisplay :list="this.getPaymentList(this.$store.state.PageNumber)"/>
+    <transition name="fade">
+      <modal-window v-if="modalSettings.name" :settings="modalSettings"/>
+    </transition>
+    <button @click="showPaymentsForm">Show Payments Form</button>
+    <button @click="closePaymentsForm">Close</button>
     <Pagination :PageNumber="PageNumber" @newPageNumber="newPageNumber"/>
   </div>
 </template>
@@ -17,7 +22,14 @@ export default {
   components: {
     PaymentsDisplay,
     AddPayment,
-    Pagination
+    Pagination,
+    ModalWindow: ()=> import(/* webpackChunkName: 'ModalWindow' */ '../components/ModalWindow.vue')
+  },
+  data(){
+    return {
+      modalShown: false,
+      modalSettings: {}
+    }
   },
   methods: {
     ...mapMutations([
@@ -29,6 +41,18 @@ export default {
       'fetchData',
       'fetchCategory'
     ]),
+    onShown(settings) {
+      this.modalSettings = settings
+    },
+    showPaymentsForm (){
+      this.$modal.show('AddPayment',{header:"Add"})
+    },
+    closePaymentsForm (){
+      this.$modal.hide()
+    },
+    onHide(){
+      this.modalSettings = {}
+    },
     getPaymentList(pageNumber) {
       return this.$store.state.paymentsList['page'+pageNumber];
     },
@@ -58,17 +82,31 @@ export default {
     // at created getting categories and data lists
     this.$store.dispatch("fetchData");
     this.$store.dispatch("fetchCategories");
+  },
+  mounted(){
+    this.$modal.EventBus.$on('shown', this.onShown);
+    this.$modal.EventBus.$on('hide', this.onHide);
+  },
+  beforeDestroy(){
+    this.$modal.EventBus.$off('shown', this.onShown);
+    this.$modal.EventBus.$off('shown', this.onShown);
   }
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+  }
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 1s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
 </style>

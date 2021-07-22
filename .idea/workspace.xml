@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="368eafbc-dd96-4191-987d-39c9fa140a03" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/hw-06/src/plugins/ModalWindow/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-06/src/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-06/src/components/ModalWindow.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw-06/src/plugins/MenuWindow/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hw-05/src/components/AddPayment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/hw-05/src/components/AddPayment.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw-06/.eslintrc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw-06/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/hw-06/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw-06/src/components/PaymentsDisplay.vue" beforeDir="false" afterPath="$PROJECT_DIR$/hw-06/src/components/PaymentsDisplay.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw-06/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/hw-06/src/views/Home.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +49,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/hw-04/src/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/hw-06/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -54,6 +60,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\git\vue-js\hw-06\src" />
       <recent name="D:\Git\vue-js\hw-04\src\components" />
       <recent name="E:\git\vue-js\hw-04\src\components" />
       <recent name="E:\git\vue-js\hw-03" />
@@ -85,7 +92,8 @@
       <workItem from="1626367267961" duration="701000" />
       <workItem from="1626368037025" duration="1382000" />
       <workItem from="1626370113666" duration="9802000" />
-      <workItem from="1626716676103" duration="5182000" />
+      <workItem from="1626716676103" duration="8717000" />
+      <workItem from="1626884084926" duration="9704000" />
     </task>
     <servers />
   </component>
@@ -135,6 +143,11 @@
           <url>file://$PROJECT_DIR$/hw-05/src/components/AddPayment.vue</url>
           <line>35</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/hw-06/src/views/Home.vue</url>
+          <line>73</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

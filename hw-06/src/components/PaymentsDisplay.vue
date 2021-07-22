@@ -6,6 +6,7 @@
         <td>{{ item.date }}</td>
         <td>{{ item.category }}</td>
         <td>{{ item.value }}</td>
+        <td><div>Компонент редактировать/закрыть с прокидыванием item id {{ item.id }}</div></td>
       </tr>
     </table>
   </div>
