@@ -10,6 +10,14 @@ export default new Vuex.Store({
     PageNumber: 1
   },
   mutations: {
+    deleteEntryPaymentList(state, payload) {
+      payload.id += ' deleted';
+    },
+    saveEditedEntryPaymentList(state, payload) {
+      this.state.paymentsList['page'+this.state.PageNumber][payload.id-1].category = payload.category;
+      this.state.paymentsList['page'+this.state.PageNumber][payload.id-1].date = payload.date;
+      this.state.paymentsList['page'+this.state.PageNumber][payload.id-1].value = payload.value;
+    },
     setPaymentListData(state, payload) {
       state.paymentsList = payload;
     },

@@ -1,6 +1,7 @@
 <template>
+  <div class="container">
   <div class="wrapper">
-    <div class="header">{{ settings.header }}</div>
+    <div class="header">{{ settings.header }} </div>
     <div class="content">
       <component
           :is="settings.name"
@@ -12,12 +13,13 @@
       <button @click="$modal.hide()">Close</button>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
-import AddPayment from "./AddPayment.vue";
+import EditPayment from "./EditPayment.vue";
 export default {
-  components: { AddPayment },
+  components: { EditPayment },
   props: {
     settings: Object
   },
@@ -30,10 +32,30 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.container {
+  position: fixed;
+  overflow: auto;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
 .wrapper {
-  padding: 20px;
   position: absolute;
-  top: 0px;
-  background: #adadad;
+  left: 50%;
+  top: 50%;
+  background-color: #fff;
+  padding: 20px;
+  margin-left: -270px;
+  margin-top: -290px;
+}
+
+.header {
+  margin: 20px;
+  font-size: 24px;
+}
+.footer {
+  margin: 20px;
 }
 </style>

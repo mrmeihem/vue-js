@@ -5,25 +5,25 @@ export default {
         }
 
         this.installed = true;
-        // this.caller = null;
+        this.caller = null;
 
         Vue.prototype.$context = {
             EventBus: new Vue(),
 
-            // show({ event, items }) {
-            //     const caller = event.target;
-            //     if (caller !== this.caller) {
-            //         this.caller = caller;
-            //         this.EventBus.$emit("shown", { items, caller });
-            //     } else {
-            //         this.close()
-            //     }
-            // },
-            //
-            // close() {
-            //     this.caller = null
-            //     this.EventBus.$emit("close");
-            // },
+            show({ event, item }) {
+                const caller = event.target;
+                if (caller !== this.caller) {
+                    this.caller = caller;
+                    this.EventBus.$emit("showMenuWindow", { item, caller });
+                } else {
+                    this.close()
+                }
+            },
+
+            close() {
+                this.caller = null
+                this.EventBus.$emit("close");
+            },
         };
     },
 };

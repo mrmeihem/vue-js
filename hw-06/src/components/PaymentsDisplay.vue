@@ -1,15 +1,18 @@
 <template>
   <div class="payments-list">
-    <table border="1px">
+    <table>
       <tr v-for="item in list" :key="item.id">
         <td>{{ item.id }}</td>
         <td>{{ item.date }}</td>
         <td>{{ item.category }}</td>
         <td>{{ item.value }}</td>
-        <td><div>Компонент редактировать/закрыть с прокидыванием item id {{ item.id }}</div></td>
+        <td>
+          <button class="context" @click="contextButtonHandler($event, item)" :key="item.id">...</button>
+        </td>
       </tr>
     </table>
   </div>
+
 </template>
 
 <script>
@@ -20,11 +23,24 @@ export default {
             type: Array,
             default: ()=>[]
         }
+    },
+  methods: {
+    contextButtonHandler(event, item) {
+      console.log(item.id);
+      this.$context.show({event, item});
     }
+  }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+
+  .context {
+    width: 30px;
+    height: 30px;
+    transform: rotate(90deg);
+    padding-bottom: 8px;
+  }
 
   .payments-list {
     display: flex;
@@ -37,7 +53,8 @@ export default {
     text-align:center;
     vertical-align: middle;
     border: 2px solid #f0f0f0;
-    width: 500px;
+    width: 650px;
+    position: relative;
   }
   td {
     white-space:pre-wrap;

@@ -81,7 +81,6 @@ export default {
       }
     },
     created(){
-      console.log(this.$attrs)
       if((!this.getValueQueryFromRoute || !this.getCategoryParamsFromRoute) && this.$route.name !== 'Home'){
         this.goToHomePage()
       }

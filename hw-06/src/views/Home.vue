@@ -2,11 +2,10 @@
   <div id="app">
     <AddPayment :categories="categories" @addNewPayment="addData"/>
     <PaymentsDisplay :list="this.getPaymentList(this.$store.state.PageNumber)"/>
+    <MenuWindow/>
     <transition name="fade">
       <modal-window v-if="modalSettings.name" :settings="modalSettings"/>
     </transition>
-    <button @click="showPaymentsForm">Show Payments Form</button>
-    <button @click="closePaymentsForm">Close</button>
     <Pagination :PageNumber="PageNumber" @newPageNumber="newPageNumber"/>
   </div>
 </template>
@@ -23,7 +22,8 @@ export default {
     PaymentsDisplay,
     AddPayment,
     Pagination,
-    ModalWindow: ()=> import(/* webpackChunkName: 'ModalWindow' */ '../components/ModalWindow.vue')
+    ModalWindow: ()=> import(/* webpackChunkName: 'ModalWindow' */ '../components/ModalWindow.vue'),
+    MenuWindow: ()=> import(/* webpackChunkName: 'MenuWindow' */ '../components/MenuWindow.vue')
   },
   data(){
     return {
@@ -45,7 +45,7 @@ export default {
       this.modalSettings = settings
     },
     showPaymentsForm (){
-      this.$modal.show('AddPayment',{header:"Add"})
+      this.$modal.show('EditPayment',{header:"Edit Payment"})
     },
     closePaymentsForm (){
       this.$modal.hide()
