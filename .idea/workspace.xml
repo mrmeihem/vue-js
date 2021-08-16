@@ -5,7 +5,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hw-05/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/hw-05/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hw-05/src/components/AddPayment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/hw-05/src/components/AddPayment.vue" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/hw-05/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/hw-05/src/router/index.js" afterDir="false" />
+=======
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +90,14 @@
       <workItem from="1626367267961" duration="701000" />
       <workItem from="1626368037025" duration="1382000" />
       <workItem from="1626370113666" duration="9802000" />
+<<<<<<< Updated upstream
       <workItem from="1626439856021" duration="5179000" />
+=======
+      <workItem from="1626716676103" duration="8717000" />
+      <workItem from="1626884084926" duration="9704000" />
+      <workItem from="1628511845987" duration="40000" />
+      <workItem from="1628512063277" duration="656000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
