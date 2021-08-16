@@ -42,7 +42,7 @@ export default {
     methods: {
       goToHomePage(){
         this.$router.push({
-          name: 'home'
+          name: 'Home'
         })
       },
       onClick(){
@@ -79,6 +79,7 @@ export default {
       }
     },
     created(){
+<<<<<<< Updated upstream
       if (!this.getValueQueryFromRoute && this.getCategoryParamsFromRoute) {
         this.category = this.getCategoryParamsFromRoute;
         this.categoryNown = true;
@@ -94,6 +95,10 @@ export default {
         this.value = this.getValueQueryFromRoute;
         this.addButton = false;
         console.log('сохраняем данные')
+=======
+      console.log(this.$attrs)
+      if((!this.getValueQueryFromRoute || !this.getCategoryParamsFromRoute) && this.$route.name !== 'Home'){
+>>>>>>> Stashed changes
         this.goToHomePage()
       }
     }
