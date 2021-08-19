@@ -1,14 +1,19 @@
 <template>
   <v-container>
-    <div id="app">
-      <AddPayment :categories="categories" @addNewPayment="addData"/>
-      <PaymentsDisplay :list="this.getPaymentList(this.$store.state.PageNumber)"/>
-      <MenuWindow/>
-      <transition name="fade">
-        <modal-window v-if="modalSettings.name" :settings="modalSettings"/>
-      </transition>
-      <Pagination :PageNumber="PageNumber" @newPageNumber="newPageNumber"/>
-    </div>
+    <v-row>
+      <v-col cols="9">
+        <AddPayment :categories="categories" @addNewPayment="addData"/>
+        <PaymentsDisplay :list="this.getPaymentList(this.$store.state.PageNumber)"/>
+        <MenuWindow/>
+        <transition name="fade">
+          <modal-window v-if="modalSettings.name" :settings="modalSettings"/>
+        </transition>
+        <Pagination :PageNumber="PageNumber" @newPageNumber="newPageNumber"/>
+      </v-col>
+      <v-col>
+        The graph will be here
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

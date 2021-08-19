@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     paymentsList: {},
+    headers: {},
     categoriesList: [],
     PageNumber: 1
   },
@@ -20,6 +21,9 @@ export default new Vuex.Store({
     },
     setPaymentListData(state, payload) {
       state.paymentsList = payload;
+    },
+    setHeadersData(state, payload) {
+      state.headers = payload;
     },
     setCategoriesListData(state, payload) {
       state.categoriesList = payload;
@@ -37,10 +41,18 @@ export default new Vuex.Store({
   actions: {
     // Getting payment list from server
     fetchData({commit}) {
-      fetch('https://raw.githubusercontent.com/mrmeihem/vue-js/main/spendings_2.json')
+      fetch('https://raw.githubusercontent.com/mrmeihem/vue-js/main/spendings_3.json')
           .then(result => result.json())
           .then(data => {
             commit('setPaymentListData', data);
+          })
+          .catch(error => console.log(error))
+    },
+    fetchHeaders({commit}) {
+      fetch('https://raw.githubusercontent.com/mrmeihem/vue-js/main/headers.json')
+          .then(result => result.json())
+          .then(data => {
+            commit('setHeadersData', data);
           })
           .catch(error => console.log(error))
     },

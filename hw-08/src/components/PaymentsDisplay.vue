@@ -1,17 +1,57 @@
 <template>
-  <div class="payments-list">
-    <table>
-      <tr v-for="item in list" :key="item.id">
-        <td>{{ item.id }}</td>
-        <td>{{ item.date }}</td>
-        <td>{{ item.category }}</td>
-        <td>{{ item.value }}</td>
-        <td>
-          <button class="context" @click="contextButtonHandler($event, item)" :key="item.id">...</button>
-        </td>
-      </tr>
-    </table>
-  </div>
+
+      <div class="payments-list">
+
+     <v-simple-table>
+      <template v-slot:default>
+        <thead>
+          <tr>
+            <th class="text-left">
+              ID
+            </th>
+            <th class="text-left">
+              Date
+            </th>
+            <th class="text-left">
+              Category
+            </th>
+            <th class="text-left">
+              Price
+            </th>
+            <th class="text-left">
+              ...
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="item in list"
+            :key="item.id"
+          >
+            <td>{{ item.id }}</td>
+            <td>{{ item.date }}</td>
+            <td>{{ item.category }}</td>
+            <td>{{ item.value }}</td>
+            <td>
+              
+            </td>
+          </tr>
+        </tbody>
+      </template>
+    </v-simple-table>
+
+        <table>
+          <tr v-for="item in list" :key="item.id">
+            <td>{{ item.id }}</td>
+            <td>{{ item.date }}</td>
+            <td>{{ item.category }}</td>
+            <td>{{ item.value }}</td>
+            <td>
+              <button class="context" @click="contextButtonHandler($event, item)" :key="item.id">...</button>
+            </td>
+          </tr>
+        </table>
+      </div>
 
 </template>
 
