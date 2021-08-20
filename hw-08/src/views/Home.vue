@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="9">
         <AddPayment :categories="categories" @addNewPayment="addData"/>
-        <PaymentsDisplay :list="this.getPaymentList(this.$store.state.PageNumber)"/>
+        <PaymentsDisplay :list="this.getPaymentList()" :headers="this.getHeaders()"/>
         <MenuWindow/>
         <transition name="fade">
           <modal-window v-if="modalSettings.name" :settings="modalSettings"/>
@@ -46,7 +46,8 @@ export default {
     ]),
     ...mapActions([
       'fetchData',
-      'fetchCategory'
+      'fetchCategory',
+      'fetchHeaders'
     ]),
     onShown(settings) {
       this.modalSettings = settings
@@ -60,8 +61,11 @@ export default {
     onHide(){
       this.modalSettings = {}
     },
-    getPaymentList(pageNumber) {
-      return this.$store.state.paymentsList['page'+pageNumber];
+    getPaymentList() {
+      return this.$store.state.paymentsList;
+    },
+    getHeaders() {
+      return this.$store.state.headers;
     },
     addData(data){
       console.log("push to state",data);
@@ -88,7 +92,9 @@ export default {
   created() {
     // at created getting categories and data lists
     this.$store.dispatch("fetchData");
+    this.$store.dispatch("fetchHeaders");
     this.$store.dispatch("fetchCategories");
+    console.log('ljk')
   },
   mounted(){
     this.$modal.EventBus.$on('shown', this.onShown);

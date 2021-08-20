@@ -1,6 +1,18 @@
 [
-	{ text: 'ID', value: 'id' },
-	{ text: 'Date', value: 'date' },
-	{ text: 'Category name', value: 'category' },
-	{ text: 'Price', value: 'value' }
+	{
+		'text': 'ID',
+		'value': 'id'
+	},
+	{
+		'text': 'Date',
+		'value': 'date'
+	},
+	{
+		'text': 'Category name',
+		'value': 'category'
+	},
+	{
+		'text': 'Price',
+		'value':'value'
+	}
 ]

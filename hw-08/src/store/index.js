@@ -21,11 +21,10 @@ export default new Vuex.Store({
     },
     setPaymentListData(state, payload) {
       state.paymentsList = payload;
-      console.log(payload);
     },
     setHeadersData(state, payload) {
+      console.log('тута должно бути' + payload);
       state.headers = payload;
-      console.log(payload);
     },
     setCategoriesListData(state, payload) {
       state.categoriesList = payload;

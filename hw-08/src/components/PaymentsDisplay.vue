@@ -1,44 +1,15 @@
 <template>
 
       <div class="payments-list">
+        {{ this.headers }}
 
-     <v-simple-table>
-      <template v-slot:default>
-        <thead>
-          <tr>
-            <th class="text-left">
-              ID
-            </th>
-            <th class="text-left">
-              Date
-            </th>
-            <th class="text-left">
-              Category
-            </th>
-            <th class="text-left">
-              Price
-            </th>
-            <th class="text-left">
-              ...
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            v-for="item in list"
-            :key="item.id"
-          >
-            <td>{{ item.id }}</td>
-            <td>{{ item.date }}</td>
-            <td>{{ item.category }}</td>
-            <td>{{ item.value }}</td>
-            <td>
-              
-            </td>
-          </tr>
-        </tbody>
-      </template>
-    </v-simple-table>
+          <v-data-table
+            dense
+            :headers="headers"
+            :items="list"
+            item-key="name"
+            class="elevation-1"
+          ></v-data-table>
 
         <table>
           <tr v-for="item in list" :key="item.id">
@@ -60,6 +31,10 @@ export default {
     name: "PaymentsDisplay",
     props: {
         list: {
+            type: Array,
+            default: ()=>[]
+        },
+        headers: {
             type: Array,
             default: ()=>[]
         }
