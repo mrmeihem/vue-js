@@ -8,7 +8,7 @@
         <transition name="fade">
           <modal-window v-if="modalSettings.name" :settings="modalSettings"/>
         </transition>
-        <Pagination :PageNumber="PageNumber" @newPageNumber="newPageNumber"/>
+        <!-- <Pagination :PageNumber="PageNumber" @newPageNumber="newPageNumber"/> -->
       </v-col>
       <v-col>
         The graph will be here
@@ -20,7 +20,7 @@
 <script>
 import PaymentsDisplay from '../components/PaymentsDisplay.vue'
 import AddPayment from '../components/AddPayment.vue'
-import Pagination from '../components/Pagination.vue'
+// import Pagination from '../components/Pagination.vue'
 import { mapMutations, mapGetters, mapActions } from 'vuex'
 
 export default {
@@ -28,7 +28,7 @@ export default {
   components: {
     PaymentsDisplay,
     AddPayment,
-    Pagination,
+    // Pagination,
     ModalWindow: ()=> import(/* webpackChunkName: 'ModalWindow' */ '../components/ModalWindow.vue'),
     MenuWindow: ()=> import(/* webpackChunkName: 'MenuWindow' */ '../components/MenuWindow.vue')
   },

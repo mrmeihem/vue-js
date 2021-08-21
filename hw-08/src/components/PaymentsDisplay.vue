@@ -1,7 +1,6 @@
 <template>
 
       <div class="payments-list">
-        {{ this.headers }}
 
           <v-data-table
             dense
@@ -9,19 +8,24 @@
             :items="list"
             item-key="name"
             class="elevation-1"
-          ></v-data-table>
+          >
+            <template v-slot:item.actions="{ item }">
+              <v-icon
+                small
+                class="mr-2"
+                @click="editItem(item)"
+              >
+                mdi-pencil
+              </v-icon>
+              <v-icon
+                small
+                @click="deleteItem(item)"
+              >
+                mdi-delete
+              </v-icon>
+            </template>
+          </v-data-table>
 
-        <table>
-          <tr v-for="item in list" :key="item.id">
-            <td>{{ item.id }}</td>
-            <td>{{ item.date }}</td>
-            <td>{{ item.category }}</td>
-            <td>{{ item.value }}</td>
-            <td>
-              <button class="context" @click="contextButtonHandler($event, item)" :key="item.id">...</button>
-            </td>
-          </tr>
-        </table>
       </div>
 
 </template>
@@ -40,6 +44,12 @@ export default {
         }
     },
   methods: {
+    editItem(item) {
+      console.log(item.id);
+    },
+    deleteItem(item) {
+      console.log(item.id);
+    },
     contextButtonHandler(event, item) {
       console.log(item.id);
       this.$context.show({event, item});

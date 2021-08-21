@@ -1,5 +1,6 @@
 <template>
   <transition name="fade">
+    
     <div class="menu-window" v-if="showMenuWindow" :style="styles">
       <div class="arrow"></div>
       <div class="panel">

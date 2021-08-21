@@ -1,5 +1,6 @@
 <template>
   <div>
+    
     <button class="addbutton" v-show="addButton" @click="addButton = !addButton">Add element</button>
     <div class="addwindow" v-show="!addButton">
       <button class="closebutton" @click="addButton = !addButton"><span>+</span></button>
