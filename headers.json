@@ -16,8 +16,8 @@
 		"value": "value"
 	},
 	{
-		"text": "Actions",
+		"text": "",
 		"value": "actions",
-		"sortable": "false",
+		"sortable": "false"
 	}
 ]
