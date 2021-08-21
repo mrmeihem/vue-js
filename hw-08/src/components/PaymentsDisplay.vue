@@ -60,30 +60,30 @@ export default {
 
 <style lang="scss">
 
-  .context {
-    width: 30px;
-    height: 30px;
-    transform: rotate(90deg);
-    padding-bottom: 8px;
-  }
+  // .context {
+  //   width: 30px;
+  //   height: 30px;
+  //   transform: rotate(90deg);
+  //   padding-bottom: 8px;
+  // }
 
-  .payments-list {
-    display: flex;
-    justify-content: center;
-    margin: 10px;
-  }
-  table {
-    text-decoration: none;
-    border-collapse:collapse;
-    text-align:center;
-    vertical-align: middle;
-    border: 2px solid #f0f0f0;
-    width: 650px;
-    position: relative;
-  }
-  td {
-    white-space:pre-wrap;
-    padding:10px 30px;
-  }
+  // .payments-list {
+  //   display: flex;
+  //   justify-content: center;
+  //   margin: 10px;
+  // }
+  // table {
+  //   text-decoration: none;
+  //   border-collapse:collapse;
+  //   text-align:center;
+  //   vertical-align: middle;
+  //   border: 2px solid #f0f0f0;
+  //   width: 650px;
+  //   position: relative;
+  // }
+  // td {
+  //   white-space:pre-wrap;
+  //   padding:10px 30px;
+  // }
 
 </style>
