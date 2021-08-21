@@ -14,5 +14,10 @@
 	{
 		"text": "Price",
 		"value": "value"
+	},
+	{
+		"text": "Actions",
+		"value": "actions",
+		"sortable": "false",
 	}
 ]
