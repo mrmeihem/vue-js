@@ -1,104 +1,132 @@
 <template>
   <div>
-    <div class="addwindow">
-      <input type="date" v-model="date" />
-      <select v-model.trim="category">
-        <option v-for="item in categories" :key="item" v-bind:item="item">{{ item }}</option>
-      </select>
-      <input type="number" v-model.number="value" />
-      <button @click="onClick">
-        Save Data
-      </button>
-    </div>
+    <v-dialog v-model="editDialog" persistent max-width="600px">
+      <v-card>
+        <v-card-title>
+          <span class="text-h5">Edit Payment</span>
+        </v-card-title>
+        <v-card-text>
+          <v-container>
+            <v-row>
+              <v-col cols="12">
+                <v-menu
+                  ref="menu"
+                  v-model="menu"
+                  :close-on-content-click="false"
+                  :return-value.sync="date"
+                  transition="scale-transition"
+                  offset-y
+                  min-width="auto"
+                >
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-text-field
+                      v-model="date"
+                      label="Picker in menu"
+                      prepend-icon="mdi-calendar"
+                      readonly
+                      v-bind="attrs"
+                      v-on="on"
+                    ></v-text-field>
+                  </template>
+                  <v-date-picker v-model="date" no-title scrollable>
+                    <v-spacer></v-spacer>
+                    <v-btn text color="primary" @click="menu = false">
+                      // Cancel
+                    </v-btn>
+                    <v-btn text color="primary" @click="$refs.menu.save(date)">
+                      OK
+                    </v-btn>
+                  </v-date-picker>
+                </v-menu>
+              </v-col>
+              <v-col cols="12">
+                <v-select
+                  v-model="category"
+                  :items="this.$store.getters.getCategoryList"
+                  label="Category*"
+                  required
+                ></v-select>
+              </v-col>
+              <v-col cols="12">
+                <v-text-field
+                  type="number"
+                  v-model="value"
+                  label="Amount*"
+                  prefix="₽"
+                  required
+                ></v-text-field>
+              </v-col>
+            </v-row>
+          </v-container>
+          <small>*indicates required field</small>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="blue darken-1" text @click="closeEditDialog()">
+            Close
+          </v-btn>
+          <v-btn
+            :disabled="!formIsValid"
+            color="blue darken-1"
+            text
+            @click="saveEditedItem()"
+          >
+            Save
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
 <script>
-import {mapGetters} from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
-    name: "EditPayment",
-    props: {
-      settings: Object},
-    data(){
-        return {
-            id: 0,
-            date: "",
-            category: "",
-            value: 0
-        }
+  name: "EditPayment",
+  data() {
+    return {
+      editDialog: false,
+      menu: false,
+      itemId: 0,
+      date: "",
+      category: "",
+      value: 0,
+    };
+  },
+  methods: {
+    initEditDialog(data) {
+      const list = this.$store.getters.getPaymentList;
+      this.editDialog = true;
+      this.itemId = list.indexOf(data);
+      this.date = data.date;
+      this.category = data.category;
+      this.value = data.value;
     },
-    methods: {
-      onClick(){
-        const { category, value, date, id } = this
-        const data = {
-          category,
-          value,
-          date,
-          id
-        }
-        console.log(data);
-        this.$store.commit('saveEditedEntryPaymentList', data);
-        this.$context.close();
-      }
+    closeEditDialog() {
+      this.editDialog = false;
     },
-    computed: {
-      ...mapGetters({
-        categories: 'getCategoryList',
-      }),
+    saveEditedItem() {
+      const { category, value, date, itemId } = this; // disable?
+      const data = {
+        category,
+        value,
+        date,
+        itemId,
+      };
+      this.$store.commit("saveEditedEntryPaymentList", data);
+      this.closeEditDialog();
     },
-    mounted(){
-      const element = this.$attrs.property.settings;
-      this.date = element.date;
-      this.category = element.category;
-      this.value = element.value;
-      this.id = element.id;
-    }
-}
+  },
+  computed: {
+    formIsValid() {
+      return this.category && this.value;
+    },
+    ...mapGetters({
+      categories: "getCategoryList",
+    }),
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-  .addbutton {
-    box-sizing: border-box;
-    padding: 10px;
-    background-color: transparent;
-    border: #0085a3 solid 1px;
-    text-transform: uppercase;
-  }
-  .closebutton {
-    box-sizing: border-box;
-    padding: 10px;
-    background-color: transparent;
-    border: none;
-    text-transform: uppercase;
-    position: absolute;
-    top: -12px;
-    right: -7px;
-    span {
-      transform: rotate(45deg);
-      display: block;
-      font-size: 1.8em;
-    }
-  }
-  .addwindow {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 12px;
-    box-sizing: border-box;
-    padding: 20px;
-    margin: 0 auto;
-    width: 500px;
-    border: #0085a3 solid 1px;
-    position: relative;
-    input {
-      height: 23px;
-    }
-    input:first-child {
-      height: 25px;
-    }
-    select {
-      padding: 5px;
-    }
-  }
-</style>
+<style></style>

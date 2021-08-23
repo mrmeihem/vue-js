@@ -7,36 +7,31 @@ export default new Vuex.Store({
   state: {
     paymentsList: [],
     headers: [],
-    categoriesList: [],
-    PageNumber: 1
+    categoriesList: []
   },
   mutations: {
     deleteEntryPaymentList(state, payload) {
-      payload.id += ' deleted';
+      state.paymentsList.splice((payload), 1)
     },
     saveEditedEntryPaymentList(state, payload) {
-      this.state.paymentsList['page'+this.state.PageNumber][payload.id-1].category = payload.category;
-      this.state.paymentsList['page'+this.state.PageNumber][payload.id-1].date = payload.date;
-      this.state.paymentsList['page'+this.state.PageNumber][payload.id-1].value = payload.value;
+      // надо использовать indexOf
+      this.state.paymentsList[payload.itemId].category = payload.category;
+      this.state.paymentsList[payload.itemId].date = payload.date;
+      this.state.paymentsList[payload.itemId].value = payload.value;
     },
     setPaymentListData(state, payload) {
       state.paymentsList = payload;
     },
     setHeadersData(state, payload) {
-      console.log('тута должно бути' + payload);
       state.headers = payload;
     },
     setCategoriesListData(state, payload) {
       state.categoriesList = payload;
     },
     addDataToPaymentsList(state, payload) {
-      // добавить логику добавления записи на последнюю страницу
-      console.log(this.getPaymentList());
-      // console.log(this.getPaymentList['page'+(this.getPaymentList.length+1)]);
+      // дебагнуть
+      console.log(payload);
       state.paymentsList.push(payload);
-    },
-    setNewPageNumber(state, payload) {
-      state.PageNumber = payload;
     }
   },
   actions: {
@@ -69,6 +64,6 @@ export default new Vuex.Store({
   getters: {
     getPaymentList: state => state.paymentsList,
     getCategoryList: state => state.categoriesList,
-    getPageNumber: state => state.PageNumber
+    getPaymentListLength: state => state.paymentsList.length
   }
 })

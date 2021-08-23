@@ -51,16 +51,19 @@
                 </v-col>
                 <v-col cols="12">
                   <v-select
-                    :items="this.$store.getters.getCategoryList"
+                    v-model="category"
+                    :items="categoriesList"
                     label="Category*"
                     required
                   ></v-select>
                 </v-col>
                 <v-col cols="12">
                   <v-text-field
+                    type="number"
+                    v-model="value"
                     label="Amount*"
-                    value="100"
                     prefix="₽"
+                    required
                   ></v-text-field>
                 </v-col>
               </v-row>
@@ -69,40 +72,21 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="blue darken-1" text @click="dialog = false">
+            <v-btn color="blue darken-1" text @click="resetAndCloseForm">
               Close
             </v-btn>
-            <v-btn color="blue darken-1" text @click="onClick">
+            <v-btn
+              :disabled="!formIsValid"
+              color="blue darken-1"
+              text
+              @click="onClick"
+            >
               Save
             </v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
     </v-row>
-
-    <!-- <button
-      class="addbutton"
-      v-show="addButton"
-      @click="addButton = !addButton"
-    >
-      Add element
-    </button> -->
-    <!-- <div class="addwindow" v-show="!addButton">
-      <button class="closebutton" @click="addButton = !addButton">
-        <span>+</span>
-      </button>
-      <input type="date" v-model="date" placeholder="date" />
-      <select v-model.trim="category">
-        <option value="">-Please choose an option--</option>
-        <option v-for="item in categories" :key="item" v-bind:item="item">{{
-          item
-        }}</option>
-      </select>
-      <input v-model.number="value" type="number" placeholder="value" />
-      <button @click="onClick">
-        Add Data
-      </button>
-    </div> -->
   </div>
 </template>
 
@@ -117,15 +101,11 @@ export default {
   },
   data() {
     return {
-      date: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
-        .toISOString()
-        .substr(0, 10),
+      date: "",
       menu: false,
       dialog: false,
-      // addButton: true,
-      // date2: "",
       category: "",
-      value: null,
+      value: "",
     };
   },
   methods: {
@@ -134,102 +114,38 @@ export default {
         name: "Home",
       });
     },
+    resetAndCloseForm() {
+      this.category = "";
+      this.value = "";
+      this.date = "";
+      this.dialog = false;
+    },
     onClick() {
       const { category, value } = this;
       const data = {
+        id: this.$store.getters.getPaymentListLength + 1,
         date: this.date || this.getCurrentDate,
         category,
         value,
       };
-      console.log("add", data);
-      //Вызов события, название события и аргументы
-      if (this.getValueQueryFromRoute && this.getCategoryParamsFromRoute) {
-        this.$store.commit("addDataToPaymentsList", data);
-        this.goToHomePage();
-        return;
-      }
       this.$emit("addNewPayment", data);
+      this.resetAndCloseForm();
     },
-    // onClick(){
-    //     const { category, value } = this
-    //     const data = {
-    //         date: this.date || this.getCurrentDate,
-    //         category,
-    //         value
-    //     }
-    //     this.$emit('addNewPayment', data)
-    // }
   },
   computed: {
+    categoriesList() {
+      return this.$store.getters.getCategoryList;
+    },
+    formIsValid() {
+      return this.category && this.value;
+    },
     getCurrentDate() {
-      const today = new Date();
-      const d = today.getDate();
-      const m = today.getMonth() + 1;
-      const y = today.getFullYear();
-      return `${d}.${m}.${y}`;
+      return new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+        .toISOString()
+        .substr(0, 10);
     },
-    getValueQueryFromRoute() {
-      return Number(this.$route.query?.value) ?? null;
-    },
-    getCategoryParamsFromRoute() {
-      return this.$route.params?.category ?? null;
-    },
-  },
-  created() {
-    if (
-      (!this.getValueQueryFromRoute || !this.getCategoryParamsFromRoute) &&
-      this.$route.name !== "Home"
-    ) {
-      this.goToHomePage();
-    }
-    this.category = this.getCategoryParamsFromRoute;
-    this.value = this.getValueQueryFromRoute;
   },
 };
 </script>
 
-<style lang="scss" scoped>
-// .addbutton {
-//   box-sizing: border-box;
-//   padding: 10px;
-//   background-color: transparent;
-//   border: #0085a3 solid 1px;
-//   text-transform: uppercase;
-// }
-// .closebutton {
-//   box-sizing: border-box;
-//   padding: 10px;
-//   background-color: transparent;
-//   border: none;
-//   text-transform: uppercase;
-//   position: absolute;
-//   top: -12px;
-//   right: -7px;
-//   span {
-//     transform: rotate(45deg);
-//     display: block;
-//     font-size: 1.8em;
-//   }
-// }
-// .addwindow {
-//   display: flex;
-//   justify-content: center;
-//   flex-direction: column;
-//   gap: 12px;
-//   box-sizing: border-box;
-//   padding: 20px;
-//   margin: 0 auto;
-//   width: 500px;
-//   border: #0085a3 solid 1px;
-//   position: relative;
-//   input {
-//     height: 23px;
-//   }
-//   input:first-child {
-//     height: 25px;
-//   }
-//   select {
-//     padding: 5px;
-//   }
-// }
-</style>
+<style></style>

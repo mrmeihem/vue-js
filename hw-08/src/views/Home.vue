@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <EditPayment @saveEditedPayment="saveEditedPayment" ref="editPayment" />
     <v-row>
       <v-col cols="9">
         <AddPayment :categories="categories" @addNewPayment="addData" />
@@ -8,16 +9,11 @@
         <PaymentsDisplay
           :list="this.getPaymentList()"
           :headers="this.getHeaders()"
+          @sendingEditItemData="sendingEditItemData"
         />
-        <!-- <MenuWindow /> -->
-        <!-- <transition name="fade">
-          <modal-window v-if="modalSettings.name" :settings="modalSettings" />
-        </transition> -->
-        <!-- <Pagination :PageNumber="PageNumber" @newPageNumber="newPageNumber"/> -->
       </v-col>
       <v-col cols="3">
-        The graph will be here
-        <Chart :chartdata="chartData" :options="chartOptions" />
+        <Chart :chartData="chartData" :options="options" />
       </v-col>
     </v-row>
   </v-container>
@@ -27,60 +23,49 @@
 import PaymentsDisplay from "../components/PaymentsDisplay.vue";
 import AddPayment from "../components/AddPayment.vue";
 import Chart from "../components/Chart.vue";
-import { mapMutations, mapGetters, mapActions } from "vuex";
+import { mapMutations, mapGetters } from "vuex";
+import EditPayment from "../components/EditPayment";
 
 export default {
   name: "App",
   components: {
     PaymentsDisplay,
     AddPayment,
+    EditPayment,
     Chart,
-    // Pagination,
-    // ModalWindow: () =>
-    //   import(
-    //     /* webpackChunkName: 'ModalWindow' */ "../components/ModalWindow.vue"
-    //   ),
-    // MenuWindow: () =>
-    //   import(
-    //     /* webpackChunkName: 'MenuWindow' */ "../components/MenuWindow.vue"
-    //   ),
   },
   data() {
     return {
-      modalShown: false,
-      modalSettings: {},
+      editDialog: false,
+      options: {},
       chartData: {
         hoverBackgroundColor: "red",
         hoverBorderWidth: 10,
-        labels: ["Green", "Red", "Blue"],
+        labels: [],
         datasets: [
           {
             label: "Data One",
-            backgroundColor: ["#41B883", "#E46651", "#00D8FF"],
-            data: [1, 10, 5],
+            backgroundColor: [
+              "#67B6EB",
+              "#EB214A",
+              "#5CEBCE",
+              "#EB9821",
+              "#5CEBCE",
+            ],
+            data: [],
           },
         ],
       },
     };
   },
   methods: {
-    ...mapMutations([
-      "setPaymentListData",
-      "addDataToPaymentsList",
-      "setNewPageNumber",
-    ]),
-    ...mapActions(["fetchData", "fetchCategory", "fetchHeaders"]),
-    onShown(settings) {
-      this.modalSettings = settings;
+    ...mapMutations(["setPaymentListData", "addDataToPaymentsList"]),
+    sendingEditItemData(data) {
+      this.$refs.editPayment.initEditDialog(data);
     },
-    showPaymentsForm() {
-      this.$modal.show("EditPayment", { header: "Edit Payment" });
-    },
-    closePaymentsForm() {
-      this.$modal.hide();
-    },
-    onHide() {
-      this.modalSettings = {};
+    saveEditedPayment(data) {
+      console.log("Save edited payment");
+      console.log(data);
     },
     getPaymentList() {
       return this.$store.state.paymentsList;
@@ -89,64 +74,34 @@ export default {
       return this.$store.state.headers;
     },
     addData(data) {
-      console.log("push to state", data);
-      // this.$store.state.addDataToPaymentsList(data);
       this.addDataToPaymentsList(data);
-    },
-    newPageNumber(direction) {
-      if (direction === "previous") {
-        const newPageN = this.paymentsList["page" + (this.PageNumber - 1)]
-          ? this.PageNumber - 1
-          : this.PageNumber;
-        this.setNewPageNumber(newPageN);
-      } else {
-        const newPageN = this.paymentsList["page" + (this.PageNumber + 1)]
-          ? this.PageNumber + 1
-          : this.PageNumber;
-        this.setNewPageNumber(newPageN);
-      }
     },
   },
   computed: {
     ...mapGetters({
       paymentsList: "getPaymentList",
       categories: "getCategoryList",
-      PageNumber: "getPageNumber",
     }),
   },
   created() {
-    // at created getting categories and data lists
-    this.$store.dispatch("fetchData");
-    this.$store.dispatch("fetchHeaders");
-    this.$store.dispatch("fetchCategories");
-    console.log("ljk");
-  },
-  mounted() {
-    this.$modal.EventBus.$on("shown", this.onShown);
-    this.$modal.EventBus.$on("hide", this.onHide);
-  },
-  beforeDestroy() {
-    this.$modal.EventBus.$off("shown", this.onShown);
-    this.$modal.EventBus.$off("shown", this.onShown);
+    const categoriesList = this.categories;
+    this.chartData.labels.push(...categoriesList);
+    const paymentsList = this.paymentsList;
+    let paymentsSumArr = [0, 0, 0, 0, 0];
+    paymentsList.forEach((element) => {
+      for (let i = 0; i < categoriesList.length; i++) {
+        if (this.chartData.labels[i] === element.category) {
+          paymentsSumArr[i] += element.value;
+        }
+      }
+    });
+    this.chartData.datasets[0].data.push(...paymentsSumArr);
   },
 };
 </script>
 
-<style lang="scss">
+<style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 1s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
+  margin-top: 40px;
 }
 </style>
