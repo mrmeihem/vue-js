@@ -67,6 +67,8 @@ export default {
       this.itemId = this.list.indexOf(item);
     },
     deleteItem() {
+      console.log("delete intention");
+      this.$emit("sendingDeleteItemData");
       this.$store.commit("deleteEntryPaymentList", this.itemId);
       this.closeDeleteDialog();
     },

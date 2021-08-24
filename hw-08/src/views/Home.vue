@@ -10,10 +10,11 @@
           :list="this.getPaymentList()"
           :headers="this.getHeaders()"
           @sendingEditItemData="sendingEditItemData"
+          @sendingDeleteItemData="sendingDeleteItemData"
         />
       </v-col>
       <v-col cols="3">
-        <Chart :chartData="chartData" :options="options" />
+        <Chart :chartData="chartData" :options="options" ref="Chart" />
       </v-col>
     </v-row>
   </v-container>
@@ -41,7 +42,7 @@ export default {
       chartData: {
         hoverBackgroundColor: "red",
         hoverBorderWidth: 10,
-        labels: [],
+        labels: ["one"],
         datasets: [
           {
             label: "Data One",
@@ -52,7 +53,7 @@ export default {
               "#EB9821",
               "#5CEBCE",
             ],
-            data: [],
+            data: [1],
           },
         ],
       },
@@ -63,9 +64,11 @@ export default {
     sendingEditItemData(data) {
       this.$refs.editPayment.initEditDialog(data);
     },
-    saveEditedPayment(data) {
-      console.log("Save edited payment");
-      console.log(data);
+    sendingDeleteItemData() {
+      this.calculateChartData();
+    },
+    saveEditedPayment() {
+      this.calculateChartData();
     },
     getPaymentList() {
       return this.$store.state.paymentsList;
@@ -75,6 +78,25 @@ export default {
     },
     addData(data) {
       this.addDataToPaymentsList(data);
+      this.calculateChartData();
+    },
+    calculateChartData() {
+      const categoriesList = this.categories;
+      this.chartData.labels.length = 0;
+      this.chartData.labels.push(...categoriesList);
+      const paymentsList = this.paymentsList;
+      let paymentsSumArr = [0, 0, 0, 0, 0];
+      paymentsList.forEach((element) => {
+        for (let i = 0; i < categoriesList.length; i++) {
+          if (this.chartData.labels[i] === element.category) {
+            paymentsSumArr[i] += +element.value;
+          }
+        }
+      });
+      this.chartData.datasets[0].data.length = 0;
+      this.chartData.datasets[0].data.push(...paymentsSumArr);
+      console.log(this.chartData.datasets[0].data);
+      // this.$refs.Chart.built();
     },
   },
   computed: {
@@ -84,18 +106,7 @@ export default {
     }),
   },
   created() {
-    const categoriesList = this.categories;
-    this.chartData.labels.push(...categoriesList);
-    const paymentsList = this.paymentsList;
-    let paymentsSumArr = [0, 0, 0, 0, 0];
-    paymentsList.forEach((element) => {
-      for (let i = 0; i < categoriesList.length; i++) {
-        if (this.chartData.labels[i] === element.category) {
-          paymentsSumArr[i] += element.value;
-        }
-      }
-    });
-    this.chartData.datasets[0].data.push(...paymentsSumArr);
+    this.calculateChartData();
   },
 };
 </script>

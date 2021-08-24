@@ -114,6 +114,7 @@ export default {
         date,
         itemId,
       };
+      this.$emit("saveEditedPayment", data);
       this.$store.commit("saveEditedEntryPaymentList", data);
       this.closeEditDialog();
     },
