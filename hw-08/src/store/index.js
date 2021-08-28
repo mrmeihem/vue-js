@@ -7,7 +7,25 @@ export default new Vuex.Store({
   state: {
     paymentsList: [],
     headers: [],
-    categoriesList: []
+    categoriesList: [],
+    chartData: {
+      hoverBackgroundColor: "red",
+      hoverBorderWidth: 10,
+      labels: [""],
+      datasets: [
+        {
+          label: "Data One",
+          backgroundColor: [
+            "#67B6EB",
+            "#EB214A",
+            "#5CEBCE",
+            "#EB9821",
+            "#5CEBCE",
+          ],
+          data: [""],
+        },
+      ],
+    }
   },
   mutations: {
     deleteEntryPaymentList(state, payload) {
@@ -27,6 +45,9 @@ export default new Vuex.Store({
     },
     setCategoriesListData(state, payload) {
       state.categoriesList = payload;
+    },
+    setChartData(state, payload) {
+      state.chartData.datasets[0].data = payload;
     },
     addDataToPaymentsList(state, payload) {
       // дебагнуть
@@ -57,6 +78,7 @@ export default new Vuex.Store({
           .then(result => result.json())
           .then(data => {
             commit('setCategoriesListData', data);
+            commit('setChartCategoriesData', data);
           })
           .catch(error => console.log(error))
     }
@@ -64,6 +86,7 @@ export default new Vuex.Store({
   getters: {
     getPaymentList: state => state.paymentsList,
     getCategoryList: state => state.categoriesList,
-    getPaymentListLength: state => state.paymentsList.length
+    getPaymentListLength: state => state.paymentsList.length,
+    getCategoryListLength: state => state.categoriesList.length
   }
 })

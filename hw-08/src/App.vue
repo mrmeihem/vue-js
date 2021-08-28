@@ -28,21 +28,50 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "App",
 
-  data: () => ({
-  }),
+  data: () => ({}),
   methods: {
     ...mapActions(["fetchData", "fetchCategory", "fetchHeaders"]),
+    ...mapMutations(["setChartData"]),
+    calculateChartData() {
+      console.log("two");
+      console.log(this.$store.getters.getCategoryListLength);
+      console.log(this.$store.getters.getPaymentListLength);
+      console.log("two");
+
+      let paymentsSumArr = Array(5).fill(0);
+      this.paymentsList.forEach((element) => {
+        for (let i = 0; i < this.categoryLength; i++) {
+          if (this.categories[i] === element.category) {
+            paymentsSumArr[i] += +element.value;
+          }
+        }
+      });
+      console.log(paymentsSumArr);
+      this.$store.commit("setChartData", paymentsSumArr);
+    },
+  },
+  computed: {
+    ...mapGetters({
+      paymentsList: "getPaymentList",
+      categories: "getCategoryList",
+      categoryLength: "getCategoryListLength",
+    }),
   },
   created() {
     // at created getting categories and data lists
     this.$store.dispatch("fetchData");
     this.$store.dispatch("fetchHeaders");
     this.$store.dispatch("fetchCategories");
+    // running a method to calculate dataset for the chart
+  },
+  mounted() {
+    console.log("created");
+    this.calculateChartData();
   },
 };
 </script>
